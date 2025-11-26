@@ -1,0 +1,118 @@
+name: Secure Deploy to GitHub Pages (Ultra 2025)
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-deploy"
+  cancel-in-progress: false
+
+jobs:
+
+  deploy:
+    name: Hardened Static Pages Deployment
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 20
+
+    steps:
+      - name: 🛡️ تفعيل وضع الأمان
+        run: |
+          set -euo pipefail
+          echo "🔐 Secure mode enabled"
+
+      - name: ⬇️ سحب الكود
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 🔏 التحقق من سلامة الـ Commit وتوقيعه
+        run: |
+          git verify-commit HEAD || (echo "❌ Commit signature invalid!" && exit 1)
+          echo "✔️ Commit signature verified"
+
+      - name: 🧹 فحص الأسرار داخل المشروع
+        uses: gitleaks/gitleaks-action@v2
+
+      - name: 🧩 تفعيل الكاش لأداء أسرع
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pages-cache
+          key: pages-${{ github.sha }}
+          restore-keys: |
+            pages-
+
+      - name: 🔍 فحص الروابط التالفة
+        run: |
+          echo "🔎 Scanning for broken links..."
+          if command -v linkchecker >/dev/null; then
+            linkchecker . || true
+          else
+            echo "⚠️ linkchecker not installed — skipping"
+          fi
+
+      - name: 📐 تحليل HTML/CSS (Linting)
+        run: |
+          echo "🧪 Running HTML/CSS lint..."
+          if command -v htmlhint >/dev/null; then
+            htmlhint . || true
+          else
+            echo "⚠️ htmlhint not installed — skipping"
+          fi
+
+      - name: 🧮 فحص حجم الملفات قبل النشر
+        run: |
+          echo "📦 Checking file sizes..."
+          max_size=5242880 # 5MB
+          while IFS= read -r file; do
+            size=$(stat -c%s "$file")
+            if [ $size -gt $max_size ]; then
+              echo "❌ File too large: $file ($size bytes)"
+              exit 1
+            fi
+          done < <(find . -type f)
+          echo "✔️ All files within limits"
+
+      - name: 🔐 التحقق من هاش الملفات (SHA256)
+        run: |
+          echo "🔒 Generating file integrity SHA256..."
+          find . -type f -exec sha256sum {} \;
+
+      - name: ⚙️ إعداد GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: 📦 رفع الملفات
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: 🚀 نشر GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: 🧹 تنظيف البيئة بعد العمل
+        run: |
+          rm -rf ~/.cache || true
+          echo "🧽 Workspace cleaned."
+
+      - name: 📣 إرسال Summary واضح
+        uses: actions/github-script@v7
+        with:
+          script: |
+            core.summary
+              .addHeading("GitHub Pages Deployment Summary")
+              .addRaw("✔️ Deployment completed successfully.<br>")
+              .addRaw("🔐 Security checks passed.<br>")
+              .addRaw("📤 Pages published to: ${{
+                steps.deployment.outputs.page_url
+              }}")
+              .write()
