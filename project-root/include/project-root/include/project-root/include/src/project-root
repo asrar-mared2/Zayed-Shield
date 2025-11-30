@@ -1,0 +1,16 @@
+/project-root
+│
+├── include/
+│   ├── syscalls.h
+│   ├── events.h
+│   ├── shortcuts.h
+│   └── utils.h
+│
+├── src/
+│   ├── main.c
+│   ├── syscalls.c
+│   ├── events.c
+│   ├── shortcuts.c
+│   └── utils.c
+│
+└── Makefile
