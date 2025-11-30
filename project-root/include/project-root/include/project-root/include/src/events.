@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include "events.h"
+
+void init_events() {
+    printf("🔧 نظام الأحداث جاهز.\n");
+}
+
+void dispatch_event(int event_type, int data) {
+    switch (event_type) {
+        case EVENT_KEYPRESS:
+            // ممكن توسع هنا: logging – hooks – plugins
+            // printf("[Event] تم ضغط زر: %c\n", data);
+            break;
+        default:
+            break;
+    }
+}
