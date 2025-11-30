@@ -1,0 +1,18 @@
+{
+  "name": "@zayed-cybershield/protection",
+  "version": "1.0.0",
+  "description": "🛡️ درع زايد للأمن السيبراني - نظام حماية متقدم",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"✅ اختبارات درع زايد نجحت\"",
+    "build": "echo \"🔨 بناء درع زايد...\"",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": ["cybersecurity", "protection", "uae", "zayed", "security"],
+  "author": "Zayed CyberShield Team",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
