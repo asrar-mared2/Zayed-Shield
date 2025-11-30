@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include "shortcuts.h"
+
+void init_shortcuts() {
+    printf("🎛️ نظام الاختصارات جاهز.\n");
+}
+
+/*
+    اختصارات مثال:
+    Ctrl + C → إنهاء
+    Ctrl + L → تنظيف الشاشة
+    Ctrl + S → حفظ
+*/
+
+int handle_shortcut(int key) {
+
+    // CTRL + L
+    if (key == 12) {
+        printf("\033[2J\033[H");  // تنظيف الشاشة
+        printf("🧹 تم تنظيف الشاشة.\n");
+        return 1;
+    }
+
+    // CTRL + S
+    if (key == 19) {
+        printf("💾 تم حفظ البيانات مؤقتًا.\n");
+        return 1;
+    }
+
+    // CTRL + C
+    if (key == 3) {
+        printf("🛑 إنهاء من خلال الاختصار.\n");
+        exit(0);
+        return 1;
+    }
+
+    return 0;
+}

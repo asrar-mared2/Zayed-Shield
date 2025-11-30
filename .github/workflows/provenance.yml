@@ -1,0 +1,27 @@
+name: Build and Generate Provenance
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  provenance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        run: sudo apt-get install -y jq zip
+
+      - name: Generate Provenance
+        run: |
+          chmod +x ./generate-provenance.sh
+          ./generate-provenance.sh
+
+      - name: Upload Provenance Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: provenance-file
+          path: .sigstore/zayed-shield-v1.0.sigstore.json
