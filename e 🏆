@@ -1,0 +1,124 @@
+[33mtag v6.0.0[m
+Tagger: asrar.mared <nike49424@proton.me>
+Date:   Mon Dec 1 06:25:04 2025 +0400
+
+🎯 إصدار v6.0.0 – تصغير سيادي وتكوين مؤسسي
+
+[33mcommit 90e37295f94b2b2b7876c8bf32bb92c44b90d7ed[m[33m ([m[1;33mtag: [m[1;33mv6.0.0[m[33m)[m
+Author: asrar.mared <nike49424@proton.me>
+Date:   Mon Dec 1 06:10:07 2025 +0400
+
+    🛡️ تفعيل TerserPlugin: تصغير سيادي وتحسين الأداء في gent
+
+[1mdiff --git a/package.json b/package.json[m
+[1mindex 2075d6f..03946d6 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -58,14 +58,16 @@[m
+     "@babel/core": "^7.22.0",[m
+     "@babel/preset-env": "^7.22.0",[m
+     "babel-loader": "^9.1.0",[m
+[32m+[m[32m    "clean-webpack-plugin": "^4.0.0",[m
+     "eslint": "^8.42.0",[m
+[32m+[m[32m    "html-webpack-plugin": "^5.6.5",[m
+     "jest": "^29.5.0",[m
+     "jest-environment-jsdom": "^30.2.0",[m
+[32m+[m[32m    "mini-css-extract-plugin": "^2.9.4",[m
+     "terser-webpack-plugin": "^5.3.14",[m
+     "webpack": "^5.88.0",[m
+     "webpack-cli": "^5.1.0"[m
+   },[m
+[31m-  "dependencies": {},[m
+   "publishConfig": {[m
+     "access": "public",[m
+     "registry": "https://registry.npmjs.org/"[m
+[1mdiff --git a/zayed-shield-gpg-private.asc b/zayed-shield-gpg-private.asc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f05e12c[m
+[1m--- /dev/null[m
+[1m+++ b/zayed-shield-gpg-private.asc[m
+[36m@@ -0,0 +1,108 @@[m
+[32m+[m[32m-----BEGIN PGP PRIVATE KEY BLOCK-----[m
+[32m+[m
+[32m+[m[32mlQdFBGks4S8BEAClcZZEHNsl5vdoadZiSebEbq8iJb+VncMCaDfH+gK8FaN6SOXv[m
+[32m+[m[32mG8GJq6kmekWGi7dQRXqV+iy7um30+Wdyqk1K7JI2XL5LKsBFvnmx32JEtlDPDe4i[m
+[32m+[m[32myBuERA85GqqRfJQ5l+kULoPszSEW7aCWYjCU7elWIOFhsTBrmyGyxv4gJRHn/bc2[m
+[32m+[m[32mRix2KE32E9WAagU8keEZtjKGOaqxLSygOJINQPTVD3uViCh57+1f1aOszB67PIRV[m
+[32m+[m[32m/4GqGI11dd9lvv4N+MTCHDtxt39LcMT8s6eAPYIk9iFhQtSM49Zgln7ENxunYnCQ[m
+[32m+[m[32mozpMquyl23SjICyDAk+PA7Hgq3h41vkyBfp9MRH4mLtvZrkLEs8M92Hmbl3Xt7Mt[m
+[32m+[m[32mok2QyGkMJjFV4COgLWp+2Y+lvww8ajMYervtxJ9yOJgT9eciY9ywByixvDTm6qyk[m
+[32m+[m[32m+wmlq6tD3CldfDMKMxY6YzKa6Vyk6tUv8iVv4iKykdDxQyPnzyCRbaQjS1VqIUo8[m
+[32m+[m[32m1iPIIapVK+tJopEfKU8ltICXPD3O0QqnLp3bu3pgp9BqDraSVWZo+zjtXqCt8M0o[m
+[32m+[m[32mhb41auGgeLh1pBejYMkrvOoyRNhSfk3r4pw8adsgAkCXapExiQrovIjCl1jtEW6r[m
+[32m+[m[32mmUZYY0xlcz0aZlrL/QvEf2DiXSgZt+6AauMje847TKrXIqyf6lpqToRFUQARAQAB[m
+[32m+[m[32m/gcDAoSfDa8ZuOYi+B9f3k25TgfqnqWsjffNmzAGqfbEfBD0uz1vdQ0w/GfU21lQ[m
+[32m+[m[32m7CoP2FIJyxKFp2x+TlJ39HGvUTfuzjV1sznR2p+hEOc5afaDZgn1NOUcVkcToAEq[m
+[32m+[m[32mj60yHiWT21leZdk8ZpFKSII71Z22Sn7mxvCaNsQTptQVQRYOOMJwkV2cP0bmHlwW[m
+[32m+[m[32mySkqlcvXVQPeL5jRkSZyDH+ADtZkeowF3W31pH6trj593XtH3HJIO2PFOLc2MLBs[m
+[32m+[m[32mlI/wxvjblx9H3/YAqZ6WbxJi9Z/95Ut+ZYMq2ng6sNDymxLxqedo4VVgqUOkfVTP[m
+[32m+[m[32mXJ6gyK3wGsmRUUSCv2KxX7UXfcbvZ78OBrS+lOGLvLpxRtA6WyaUiYS4+iyqpuxL[m
+[32m+[m[32mEMv/ENIooqS+zCxDnliQR0+xIXdCpcv3Uf98zmwW+gLZInvBJ+hCJNX+fMpgToRe[m
+[32m+[m[32m8Uk/aMcvXpl+PcfT9qUJACMUlvIGQzkmXVhRleKv6OnD9X0WLa991RZ+3PI5ewVF[m
+[32m+[m[32mqcZz1ViqZdVTr/XLWoDUwhefbT2mCEnz7+72Fah9rBZhvcX9BE1sEnrgTSv8ngwB[m
+[32m+[m[32mMIZYKhBxZB11vKFTMX9yOd4kmLPSojYhDDnelAc64eKt0ZSyqTb6i2u6bGcwCq6s[m
+[32m+[m[32mqsIWkSy7U5Wtm3ak5KXZs1Y871d+Wu8PvehASF1Ef36ZRnzIowKIE558TjKGSO19[m
+[32m+[m[32mWj0g2QNDcluYt/Kwf0VPTMhKAZkjJXoQmZ8+d2JakzGuU5/JAbSt41DD66WKudAf[m
+[32m+[m[32meDXWoxfibrVzNA1+V3U54XQj4TNLO1aIfjqQsqbIStb9aRLMmUpMm7pRU0xVuxmH[m
+[32m+[m[32mDlLtND+IUWO/z4YSSJq6e5ZhejsLdD10c04EzWoUgE2lHBKWEytljnzij8RPzEf0[m
+[32m+[m[32mDOLjJEjeWjvRgevJJQ23k10CSU6d3C+vMXjHFd5WF5z8URXIip9wyHb4BkVW9fwQ[m
+[32m+[m[32mHivBcEkbCYeFYp3fXBCVGbsQZsU0Rdorm/UhjMzv8wHbyTaPmKjjovcXPPGPiYeB[m
+[32m+[m[32m2sjq4DOq+P4GJD/32ajrVXcovqvehlIJ5gk486AjkM7/Ja9sgtT5jtjZ1QMJaQ1K[m
+[32m+[m[32m97ubY2LUxKxQpLhjgIIJ/sBwDP12BlGPX6irGryqkQ9CrFUJELCBaCEvZkg4tJ3F[m
+[32m+[m[32mqOWKuXCZvsZep8/OhN8vsLFeIwjlQW2oopJ91DkiM6AoIuLAae28rIzWRIHdq1x6[m
+[32m+[m[32mn5drh0LPWxTNXxvfPezuT0oit/pI6gz+sRKvM9o6Es+ZLWHhA2QzRaorXmnXdAU2[m
+[32m+[m[32mOSRqtT3AUUv2rMLGjkaNrOkyxECCBvDI8iAy00CSL57Zx0r39eKqrALp2pQk5E94[m
+[32m+[m[32mDc2zVYTIXPOptMYIKfOQlofbBbbx0VEdaTEO5+r50+Xe8l0pEWYc3EB7Sp3kbhXK[m
+[32m+[m[32mqpojQEy151UEvhpwLqZwe7ox4DfEoXxLkMdFzili8aK45NOxE6TNXmUXxCGdvs1g[m
+[32m+[m[32mMv3RIAGd+oy4U8wWxdDWXPllCJesni2QnqXwZ8gw0JhJ3INGgHw6AZQbavCMbK2G[m
+[32m+[m[32m9KblRmEzmlHB+UvCmff3NzKsNd3o/b+YIK31DAyFbhaLC/ftdU2NVkFcVNqmnvRf[m
+[32m+[m[32mHTcbk22STe6SyErfO0+VeMj9VS0PRAWHJikGEpPu8lXz7SeHXlSAZjxQ+K8r20H3[m
+[32m+[m[32mzd6EOznHUPp0winIWqdqbTSNdZ6sg8LTSgRtbuT897F7tXfQLjvu3O6gUVMevdZ+[m
+[32m+[m[32mft7Z2bp4V057HmZ7EqX9Pm463KenoIGLqbhzw0UVLnAB5DKt7wyg6LQlYXNyYXIu[m
+[32m+[m[32mbWFyZWQgKHkpIDxuaWtlNDk0MjRAcHJvdG9uLm1lPokCbAQTAQgAVhYhBAZHVfNo[m
+[32m+[m[32mvrLRett7QauPAKTC9ziTBQJpLOEvGxSAAAAAAAQADm1hbnUyLDIuNSsxLjExLDMs[m
+[32m+[m[32mMgIbAwULCQgHAgIiAgYVCgkICwIDFgIBAh4HAheAAAoJEKuPAKTC9ziTQpcQAITt[m
+[32m+[m[32mMjGr4O7muSpt61mzF/jn+1Kdg2VBDvFZ8bm9Gr0Q318Y0t3+MEBplSAPZK+eT6A/[m
+[32m+[m[32mrIY7FmxsNv7OSnxB+3Hpf+pC+teBn4JCCPYWWltMKIXIbs/7lHHoy9boeK7j9fBy[m
+[32m+[m[32m2JCiogJOUPoyqcOEOQrguHVBn6XFmnf0XsRzC0TrdajQpmBKyBJqgFiIObGzS6go[m
+[32m+[m[32mbGfHCNaBwuKKPoj5fSP2bsXxOJzgrLG2Gv180BXUqMsHKhzbx4T7bS0jcvm4Vzne[m
+[32m+[m[32mDmri8pbRjWz/8Sraq8RmSeLy0jE9hrK699G4/3Z8+UhdHMf/aex+HGH43ZvcE5/Q[m
+[32m+[m[32mNILnTLd9m0mFDQuI+qOVovi6BYOICSr8zzcdEOkSVfRzuV0Y08JwEd2AeLUZK0EH[m
+[32m+[m[32m0XMI+M+0s/gv3ldMxD9vY9fY8aCZ5ZFkyfKcWTDDsWw6dSFW15Rmh6mhaC31uKqd[m
+[32m+[m[32mVbf9+YC3Kxliebkid+YWQCnqgfkxX41V4lS4g3obNSM+rY4VDs6mR7ZGlqrhQd73[m
+[32m+[m[32maKhr/QYXvTRLWZHQFhnz29hpYcwrjzLEKYwOgGnFJMM5pMZU6kgzqd1+thrL2+R3[m
+[32m+[m[32mo6lg54hW2SSpLRIYPa+zRmFNcdsoX6/rsCC8ytGnYyw1f2j1ZsbAG096c0UpxVP+[m
+[32m+[m[32mTNvsLzGvU8rSaaH/E8+vu23Jtcl6LF6E9YgPA5KBnQdGBGks4S8BEACzgB/J+Yhw[m
+[32m+[m[32mTCDt6AW3NzAv+0F6GU39cDiXar/8qWQCrlFG33d9bRW5PyRJcDKNZmutD737qZ9t[m
+[32m+[m[32mvROIFzJhj/CKkKNsKHNyV+nl8xAQrNV3sRrQjY5rMaO5lYCkVHsGzszg2K28tT0f[m
+[32m+[m[32mYpj2MnXqNKzjqAYCqWp7leGZfV+eYea8pJwHrCSfyOUKK6Hhj92Ko3x9q8u7Lbnm[m
+[32m+[m[32mgHKQdwMEF49ZqNQkcDMATIqcGp6qFJ8e3tm2YUWvINUaocUbIsSjbDKo+jon0sjU[m
+[32m+[m[32mUoA7zLLC1sdrp7bLkxjC/Dp37kjtRpoTiKg/gCKaUBsNZubuVn5ZGTruFcGmXySf[m
+[32m+[m[32mIRDfF3dJ+XpVp9tmKqyNfDyJfbUoCfJVZ9QUYbcn+r22+uvSz3z3l5/m+nAgJ3T4[m
+[32m+[m[32mdEy6apdw6AbNgqep2JTWMhUzK09vXqXk3BZOHviZphAHF2LGLSgr656oBDUmvy6y[m
+[32m+[m[32mcN80ZZeOS6rKzddmV8aJdFuhyG39KsP7rlSCSvUnfdCvI4n3NYEWizRq3l/HpGx2[m
+[32m+[m[32m0xxAFf58BXzbmpjjBdxq0v3EkAZZPdfuwsJ1Q0mHeqMOpfd4+MQP7ZTvcmqEriHT[m
+[32m+[m[32mVTRhZ+1N/l6CXELQkmxkJ3voY/ap6gZEUwLEbdDE5zL5QjFdoDC16UWSA4Bh1xf1[m
+[32m+[m[32m2YKwPJ+KkrzlLSC4OprCrIXj7YnbhmsBQwARAQAB/gcDAgSLjBrTVVJc+HQeJ+kB[m
+[32m+[m[32mFxAs6pqqUHNJQyvoOGEGln9h6A5vVWe11d5wltrc+8uS3GaYyIbVBIgGSxUl0IOm[m
+[32m+[m[32mCL3lnS8r6+BZHI4pVzNWrpvHh0UdPRHFku2JEZKiXl0UYWgeHtaKHmykmcVsIDlo[m
+[32m+[m[32mJMnGDce8pgfRLfBHUFFzWm62uoRRkNrUOa4y3GQNcZZpOhpFTxdMk/vispyS/tec[m
+[32m+[m[32mnqFNlE130qKqi7ro3UZjJkFNT/Q8hEJBC96iDSFXsnk/QvHqs7mEAHsHROUVBfsH[m
+[32m+[m[32mkduxb/nRfwu4xi7Kklb00O/VF7G6O/f0q3PlNutpxMXgEduXdys/pW6YYSNSrojx[m
+[32m+[m[32mOlJA4dywpN8Z2PiL2yzFn99PBKjQI0o7gO3tVgVO4lyaCiZYnp2Jk57q3B9x3J+Q[m
+[32m+[m[32mXJZSXR8KGXwpvDCOFBII5/GAGWvMwQ1q6zbTNIyU1tcgplHj42B3eKGkyse9dHtH[m
+[32m+[m[32mH181VtzXxs60yEeyea6ZM0FsZAEPbt4G22gsdNIbAW6WCbb/tZVs2JzeDG99ICLd[m
+[32m+[m[32mKLjEWmwCnFONJji+imJs8RWoigN5qs1ETeEUwn4QCAMFL1VFZg9mc8iDpkZ/Rl26[m
+[32m+[m[32m2CLyZLUQcHh0lg6Pbhj+ddSYkF4IJN+TqRfhj1PHPO9F5ifTB+lwMNtr3qxMEf3y[m
+[32m+[m[32mSUCfpZpIiqTxDT6X4P4Ai2sElVMWkJS3cCjLObjTHE2lB2emiSU2RkK7kOidrAL4[m
+[32m+[m[32mJ1gN7Cl8eTLE7JXxkRuw6CROsgoS1cKBgzo8oIME2YP5zYiLWNnsotmez7UmD8Je[m
+[32m+[m[32mHUPyGY6kmtoOQlehCQbQWoyTNdcSn2BnYmJExe4Qh41mhDK+hM/iy3G4fDQ7fFWm[m
+[32m+[m[32mOfbWKjgtDYQFvDt/+03ICuH0cDb+WhDHnXDhspWFg0V/9Zc61nXpbNIhH1uMVzuZ[m
+[32m+[m[32mpuD0QEgrze/QnuvfEts5MRc3dmzC9fy49hHqwAn/zAh4idahVTBfQS8DQxj2Qqk/[m
+[32m+[m[32mmpGF0ybJuFyfj7aVm9WwxOFDlxYfWMUVRg70xueL+wAhx6868ZP9tbirGUfJbae4[m
+[32m+[m[32mg9S5wsFpsWcsxgjS5+jvI6UuR7K6P8iMqvXRNwqyZQyckeRygiUrXSLRYYPoWrfu[m
+[32m+[m[
