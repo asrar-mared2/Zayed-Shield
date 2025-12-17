@@ -315,8 +315,8 @@ Contributors will be:
 ## 📞 Contact
 
 - **Discord**: [Join our server](https://discord.gg/zayedshield)
-- **Telegram**: [@zayedshield](https://t.me/zayedshield)
-- **Email**: contributors@zayed-shield.ae
+- **Telegram**: [@nike49424a](https://t.me/nike49424a)
+- **Email**: nike49424@proton.me
 
 ---
 
