@@ -1,0 +1,28 @@
+firewall:
+  mode: protect            # monitor | protect | learning
+  log_level: INFO
+  max_requests_per_ip: 100
+  time_window_seconds: 60
+  block_duration_minutes: 30
+
+ai:
+  enabled: true
+  model: isolation_forest
+  contamination: 0.02
+  retrain_interval_minutes: 60
+
+network:
+  allowed_countries: []
+  blocked_countries: []
+  whitelist_ips:
+    - 127.0.0.1
+  blacklist_ips: []
+
+response:
+  auto_block: true
+  alert_on_high: true
+  alert_on_critical: true
+
+paths:
+  logs: logs/firewall.log
+  data: data/
