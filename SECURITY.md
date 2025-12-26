@@ -500,3 +500,6 @@ declined, etc.
  * نهاية سكريبت الحماية - درع زايد للأمن السيبراني
  * 🇦🇪 "من الإمارات... للعالم" 🇦🇪
  */
+### 🔒 Security Advisories
+
+- [GHSA-35fj-cfg5-798m — High Severity Vulnerability](SECURITY/advisories/SECURITY_ADVISORY-GHSA-35fj-cfg5-798m.md)
