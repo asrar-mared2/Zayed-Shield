@@ -1,0 +1,28 @@
+name: 📦 إصدار تلقائي عند إنشاء Tag
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: إنشاء إصدار تلقائي
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 تحقق من الكود
+        uses: actions/checkout@v4
+
+      - name: 📝 إنشاء إصدار تلقائي
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          gh release create "$tag" \
+            --repo="$GITHUB_REPOSITORY" \
+            --title="إصدار $tag" \
+            --generate-notes
