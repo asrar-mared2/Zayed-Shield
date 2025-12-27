@@ -1,0 +1,42 @@
+name: 📝 توليد CHANGELOG تلقائي
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  changelog:
+    name: توليد CHANGELOG.md
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 تحقق من الكود
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🧠 إعداد Git
+        run: |
+          git config user.name "asrar-mared"
+          git config user.email "asrar-mared2@users.noreply.github.com"
+
+      - name: 📝 توليد CHANGELOG.md
+        run: |
+          latest_tag=$(git describe --tags --abbrev=0 HEAD^ || echo "")
+          current_tag=${GITHUB_REF#refs/tags/}
+          echo "## $current_tag" > CHANGELOG.md
+          if [ -n "$latest_tag" ]; then
+            git log "$latest_tag"..HEAD --pretty=format:"- %s" >> CHANGELOG.md
+          else
+            git log --pretty=format:"- %s" >> CHANGELOG.md
+          fi
+
+      - name: 🚀 رفع التغييرات
+        run: |
+          git add CHANGELOG.md
+          git commit -m "📝 تحديث CHANGELOG للإصدار $current_tag"
+          git push
